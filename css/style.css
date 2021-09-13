@@ -17,7 +17,7 @@ body {
 }
 /*------ search input box css here  --------*/
 .search-box {
-  border: 1px solid rgb(19, 150, 132);
+  border: 1px solid #449d44;
   width: 33%;
   border-radius: 5px;
   margin: auto;
@@ -31,7 +31,8 @@ body {
   font-size: 19px;
   border: none;
   float: right;
-  background-color: rgb(19, 150, 132);
+  background-color: #449d44;
+  border-radius: 0px 5px 5px 0px;
 }
 .search-button {
   padding: 10px 50px;
@@ -73,7 +74,6 @@ h3#product-title {
 }
 .cart {
   width: 350px;
-  /* border: 1px solid green; */
   padding: 10px;
   box-shadow: 10px 10px 20px gray;
   border-radius: 5px;
@@ -115,7 +115,7 @@ h3#description-btn {
   align-items: center;
   padding: 0px 40px;
 }
-
+/*------ responsive website for middle device -------*/ 
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;
@@ -123,7 +123,6 @@ h3#description-btn {
   }
   .cart {
     width: 300px;
-    /* border: 1px solid green; */
     padding: 10px;
     box-shadow: 10px 10px 20px gray;
     border-radius: 5px;
@@ -134,6 +133,7 @@ h3#description-btn {
     padding-right: 10px;
   }
 }
+/*--------- responsive for smoll device  ------*/
 @media only screen and (max-width: 468px) {
   #all-products {
     display: grid;
