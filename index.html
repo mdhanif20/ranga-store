@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- give website title  -->
   <title>Iqra Online Shopping Store</title>
+  <!-- main css link  -->
   <link rel="stylesheet" href="./css/style.css" />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -21,6 +22,7 @@
 <body>
   <header></header>
   <main class="main">
+    <!-- search area start here  -->
     <div class="search-field">
       <div class="search-box">
         <input id="input-field" class="search-field" type="text" />
@@ -29,18 +31,23 @@
           Search
         </button>
       </div>
+      <!-- search area end here  -->
     </div>
-    <!-- single product description  -->
+    <!-- single product description start here -->
     <div id="single-product">
-     
     </div>
+    <!-- single product description end here -->
+    <!-- product details showing row start here -->
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
+        <!-- single product cart start here  -->
         <div id="all-products" class="">
           <!--product showing emty area bug fixed -->
           <!-- <h1></h1> -->
         </div>
+         <!-- single product cart end here  -->
       </div>
+      <!-- calculation area start here  -->
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
         <div class="cart" id="my-cart">
           <table class="table">
@@ -54,6 +61,7 @@
               </tr>
             </thead>
             <tbody>
+              <!-- total added product calculation start here  -->
               <tr>
                 <th>Total Added-Products:</th>
                 <!-- total added product problem fixed  -->
@@ -61,29 +69,38 @@
                 <td></td>
                 <td></td>
               </tr>
+              <!-- total added product calculation end here  -->
+              <!-- total price calculation area start here  -->
               <tr>
                 <th>Price:</th>
                 <td>$ <span id="price">0</span></td>
                 <td></td>
                 <td></td>
               </tr>
+              <!-- total price calculation area end here  -->
+              <!-- delivery charge calculation area start here  -->
               <tr>
                 <th>Delivery-Charge:</th>
                 <td>$ <span id="delivery-charge">20</span></td>
                 <td></td>
                 <td></td>
               </tr>
+              <!-- delivery charge calculation area end here  -->
+              <!-- total tax calculation area start here  -->
               <tr>
                 <th>Total-Tax:</th>
                 <td>$ <span id="total-tax">0</span></td>
                 <td></td>
                 <td></td>
               </tr>
+              <!-- total tax calculation area end here  -->
+              <!-- total product price full calculation start here  -->
               <tr>
                 <th scope="row">Total</th>
                 <td colspan="2">$ <span id="total">0</span></td>
                 <td></td>
               </tr>
+              <!-- total product price full calculation end here  -->
             </tbody>
           </table>
           <div class="parces text-center">
@@ -91,12 +108,14 @@
           </div>
         </div>
       </div>
+       <!-- calculation area end here  -->
     </div>
+     <!-- product details showing row end here -->
   </main>
   <footer></footer>
-
+  <!-- fontawesome icon link  -->
+  <script src="https://kit.fontawesome.com/3ee6799965.js" crossorigin="anonymous"></script>
   <!-- add javascript  file  -->
   <script src="./js/app.js"></script>
 </body>
-
 </html>

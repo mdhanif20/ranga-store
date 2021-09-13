@@ -1,3 +1,6 @@
+/*--------------
+ products api call here 
+ ---------------*/ 
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
@@ -9,12 +12,14 @@ loadProducts();
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
+ /*---------  takes single product  ---------*/
   for (const product of allProducts) {
-   console.log(product);
     /*--------- product image bug fixed  ---------*/
     const image = product.image;
     const title = product.title;
+    /*----- slice product title for creat same size cart  ------*/
     const shortTitle = title.slice(0,40);
+   /*  single product div creat  */
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
@@ -23,7 +28,7 @@ const showProducts = (products) => {
       </div>
       <h3 id="product-title">${shortTitle}</h3>
       <p>Category: ${product.category}</p>
-      <p id="show-rating"><span>Average Rating: ${product.rating.rate}</span><span>Total Rating: ${product.rating.count}</span></p>
+      <p id="show-rating"><span><i class="fas fa-star"></i> ${product.rating.rate}</span><span><i class="fas fa-user"></i> ${product.rating.count}</span></p>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button id="details-btn" class="btn btn-danger" onclick="singleProduct(${product.id})">Details</button></div>
@@ -31,6 +36,7 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+/* product price count cart  */
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -38,9 +44,10 @@ const addToCart = (id, price) => {
   updateTaxAndCharge();
   // update total bug fixed 
   updateTotal();
+  /* ----total product set here --- */
   document.getElementById("total-Products").innerText = count;
 };
-
+/*------ take value from price area  ------*/
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
@@ -51,14 +58,15 @@ const getInputValue = (id) => {
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id) ;
   const convertPrice = parseFloat(value);
+ /* ------- price calculation --------*/ 
   const total = convertedOldPrice + convertPrice;
-  document.getElementById(id).innerText = /* Math.round */ parseFloat(total).toFixed(2);
+  document.getElementById(id).innerText = parseFloat(total).toFixed(2);
 };
 
 // set innerText function
 const setInnerText = (id, value) => {
   console.log(id,value);
-  document.getElementById(id).innerText = /* Math.round */ value;
+  document.getElementById(id).innerText = value;
 };
 
 // update delivery charge and total Tax
@@ -84,20 +92,23 @@ const updateTaxAndCharge = () => {
 //grandTotal update function
 const updateTotal = () => {
   const grandTotal =
+ /* ------- total price calculation  -----*/
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
   document.getElementById("total").innerText = parseFloat(grandTotal).toFixed(2) ;
 };
-
+/* -------single product api call here --------*/ 
 const singleProduct = singleProductId =>{
   const url = `https://fakestoreapi.com/products/${singleProductId}`;
   fetch(url)
   .then(res => res.json())
   .then(data => singleProductDetails(data));
 }
+/*----------- single product description -----------*/ 
 const singleProductDetails = singleProductInfo =>{
   const productDescription = document.getElementById("single-product");
   productDescription.style.display = 'block';
+  /*-------- single product details give here  -------*/
   productDescription.innerHTML = `
   <img src="${singleProductInfo.image}" id="single-product-image" alt="">
   <h2>${singleProductInfo.title}</h2>
